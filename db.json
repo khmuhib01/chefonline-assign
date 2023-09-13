@@ -1,0 +1,22 @@
+{
+  "employee": [
+    {
+      "name": "Kh Muhityuty asdas",
+      "age": "26",
+      "address": "Mirpur-14",
+      "id": 1
+    },
+    {
+      "name": "dsada",
+      "age": "dsasdasd",
+      "address": "asdasdasd",
+      "id": 2
+    },
+    {
+      "name": "rrrr",
+      "age": "50",
+      "address": "rwewewe",
+      "id": 3
+    }
+  ]
+}
