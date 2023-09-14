@@ -1,37 +1,28 @@
 import { useEffect, useState } from "react";
 import SectionWrapper from "../../component/SectionWrapper";
-import BlogCard from "./BlogCard";
 import axios from "axios";
 
-interface IBlogPost {
-  id: number;
-  title: string;
-  category?: string;
-  tag?: string[];
-  desc: string;
-  img: string;
-}
-
-const blogPosts: IBlogPost[] = [
-  {
-    id: 1,
-    title: "Blog Post 1",
-    category: "Category 1",
-    tag: ["Tag1", "Tag2"],
-    desc: "Description of Blog Post 1",
-    img: "url-to-image-1",
-  },
-  {
-    id: 2,
-    title: "Blog Post 2",
-    desc: "Description of Blog Post 2",
-    img: "url-to-image-2",
-  },
-  // Add more blog posts as needed...
-];
+// interface IDish {
+//   cuisine_id: string;
+//   cuisine_name: string;
+//   category: [
+//     {
+//       category_id: string;
+//       category_name: string;
+//       dish: [
+//         {
+//           dish_id: string;
+//           dish_name: string;
+//           dish_description: string;
+//           dish_price: string;
+//         }
+//       ];
+//     }
+//   ];
+// }
 
 export const Home = () => {
-  const [data, setData] = useState(null);
+  const [dishes, setDishes] = useState<any>();
 
   useEffect(() => {
     // Define the API URL
@@ -42,25 +33,52 @@ export const Home = () => {
     axios
       .get(apiUrl)
       .then((response) => {
-        setData(response.data); // Set the response data to the state
+        setDishes(response?.data?.app[0]?.cuisine); // Set the response data to the state
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
   }, []);
 
-  if (!data) return null;
+  if (!dishes) return null;
 
-  console.log("data", data);
+  console.log("dishes", dishes);
   // console.log("data", data.app[0].cuisine[0].category);
   return (
     <>
-      <SectionWrapper title="Restaurant List" subTitle="Explore the restaurant">
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
-          {blogPosts.map((blogPost) => (
-            <BlogCard key={blogPost.id} blogPost={blogPost} />
-          ))}
-        </div>
+      <SectionWrapper title="Food Items" subTitle="Explore your food">
+        {dishes.map((cuisine: any) => {
+          return (
+            <div className="" key={cuisine.cuisine_id}>
+              <div className="">
+                <h2 className="text-center">{cuisine.cuisine_name}</h2>
+              </div>
+              {cuisine.category.map((category: any) => {
+                return (
+                  <div className="" key={category.category_id}>
+                    <h1 className="text-[30px] font-bold">
+                      {category.category_name}
+                    </h1>
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
+                      {category.dish.map((dish: any) => {
+                        return (
+                          <div
+                            className="shadow border p-2 rounded-md"
+                            key={dish.dish_id}
+                          >
+                            <p>{dish.dish_name}</p>
+                            <p>{dish.dish_description}</p>
+                            <p>{dish.dish_price}</p>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
       </SectionWrapper>
     </>
   );
