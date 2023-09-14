@@ -1,20 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import ServiceCard from "./ServiceCard";
-import { services } from "../../dummy/service-card";
-import Button from "../../component/Button";
-import { blogPost } from "../../dummy/blog";
-import {
-  AiOutlineFundProjectionScreen,
-  AiOutlineProject,
-} from "react-icons/ai";
-import { IoIosPeople } from "react-icons/io";
-import { TbWorldCancel } from "react-icons/tb";
-import { ImHappy } from "react-icons/im";
-import { GiCalendarHalfYear } from "react-icons/gi";
-import { BsArrowRight } from "react-icons/bs";
+import { useEffect, useState } from "react";
 import SectionWrapper from "../../component/SectionWrapper";
 import BlogCard from "./BlogCard";
+import axios from "axios";
 
 interface IBlogPost {
   id: number;
@@ -24,89 +11,6 @@ interface IBlogPost {
   desc: string;
   img: string;
 }
-
-const glanceData = [
-  {
-    icon: <AiOutlineProject size={50} className="m-auto text-red-500" />,
-    count: "50+",
-    label: "Project",
-  },
-  {
-    icon: (
-      <AiOutlineFundProjectionScreen
-        size={50}
-        className="m-auto text-red-500"
-      />
-    ),
-    count: "50+",
-    label: "Products",
-  },
-  {
-    icon: <IoIosPeople size={50} className="m-auto text-red-500" />,
-    count: "50+",
-    label: "Experts",
-  },
-  {
-    icon: <TbWorldCancel size={50} className="m-auto text-red-500" />,
-    count: "50+",
-    label: "Countries",
-  },
-  {
-    icon: <ImHappy size={50} className="m-auto text-red-500" />,
-    count: "50+",
-    label: "Happy Clients",
-  },
-  {
-    icon: <GiCalendarHalfYear size={50} className="m-auto text-red-500" />,
-    count: "50+",
-    label: "Years Experienced",
-  },
-];
-
-const productData = [
-  {
-    gradientColors: "from-blue-500 to-green-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-  {
-    gradientColors: "from-orange-500 to-red-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-  {
-    gradientColors: "from-green-500 to-blue-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-  {
-    gradientColors: "from-blue-500 to-green-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-  {
-    gradientColors: "from-orange-500 to-red-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-  {
-    gradientColors: "from-green-500 to-blue-500",
-    iconText: "ERP",
-    title: "Enterprise Resource Planning",
-    description:
-      "Launch your multi-purpose and multi-vendor online business...",
-  },
-];
 
 const blogPosts: IBlogPost[] = [
   {
@@ -127,6 +31,26 @@ const blogPosts: IBlogPost[] = [
 ];
 
 export const Home = () => {
+  const [data, setData] = useState<any>({});
+
+  useEffect(() => {
+    // Define the API URL
+    const apiUrl =
+      "http://smartrestaurantsolutions.com/mobileapi-v2/v3/Tigger.php?funId=81&rest_id=17"; // Replace with your API URL
+
+    // Make an Axios GET request to the API
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        setData(response.data); // Set the response data to the state
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  console.log("data", data);
+  // console.log("data", data.app[0].cuisine[0].category);
   return (
     <>
       <SectionWrapper title="Restaurant List" subTitle="Explore the restaurant">
