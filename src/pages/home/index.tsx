@@ -31,7 +31,7 @@ const blogPosts: IBlogPost[] = [
 ];
 
 export const Home = () => {
-  const [data, setData] = useState<any>({});
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     // Define the API URL
@@ -48,6 +48,8 @@ export const Home = () => {
         console.error("Error fetching data:", error);
       });
   }, []);
+
+  if (!data) return null;
 
   console.log("data", data);
   // console.log("data", data.app[0].cuisine[0].category);
