@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="px-5 shadow-md py-5 fixed w-full bg-white">
+      <div className="px-5 shadow-md py-5 w-full bg-white">
         <div className="flex justify-between items-center gap-x-2">
           <div className="">
             <Link to="/">

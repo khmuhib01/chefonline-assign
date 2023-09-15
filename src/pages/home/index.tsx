@@ -15,17 +15,22 @@ export const Home = () => {
 
   return (
     <>
-      <SectionWrapper title="Food Items" subTitle="Explore your food">
+      <SectionWrapper title="Dishes List" subTitle="Explore your food">
         {dishes?.map((cuisine: any) => {
           return (
-            <div className="" key={cuisine.cuisine_id}>
+            <div className="flex flex-col gap-y-8" key={cuisine.cuisine_id}>
               <div className="">
-                <h2 className="text-center">{cuisine.cuisine_name}</h2>
+                <h2 className="text-center text-[40px] font-bold">
+                  {cuisine.cuisine_name}
+                </h2>
               </div>
               {cuisine.category.map((category: any) => {
                 return (
-                  <div className="" key={category.category_id}>
-                    <h1 className="text-[30px] font-bold">
+                  <div
+                    className="flex flex-col gap-y-2"
+                    key={category.category_id}
+                  >
+                    <h1 className="text-[20px] font-bold">
                       {category.category_name}
                     </h1>
                     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-5">
@@ -35,9 +40,11 @@ export const Home = () => {
                             className="shadow border p-2 rounded-md"
                             key={dish.dish_id}
                           >
-                            <p>{dish.dish_name}</p>
+                            <p className="font-bold">{dish.dish_name}</p>
                             <p>{dish.dish_description}</p>
-                            <p>{dish.dish_price}</p>
+                            <p>
+                              <b>Price:</b> {dish.dish_price}
+                            </p>
                             <button
                               className="bg-amber-500 rounded-lg px-2 text-[14px] text-white float-right"
                               onClick={() => {

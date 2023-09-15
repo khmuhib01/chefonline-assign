@@ -9,7 +9,7 @@ interface SectionWrapperProps {
 const SectionWrapper = ({ children, title, subTitle }: SectionWrapperProps) => {
   return (
     <div className="py-10 px-5">
-      <div className="container m-auto">
+      <div className="container m-auto mt-5">
         <div className="text-center">
           <p>{subTitle}</p>
           <h2 className="text-[40px] font-bold">{title}</h2>

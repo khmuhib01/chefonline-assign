@@ -49,7 +49,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
-        <div>
+        <div className="min-h-screen">
           <div className="py-10">
             <div className="container mx-auto px-2">
               <div className="py-3">
