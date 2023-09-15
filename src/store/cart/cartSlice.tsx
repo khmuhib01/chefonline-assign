@@ -1,11 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+const savedCart = localStorage.getItem("cart");
+
 export interface CounterState {
   data: [] | null | any;
   loading: boolean;
   error: string | null;
   cart: any[];
+  orderItem: any[];
   totalCartAmount: any;
 }
 
@@ -15,6 +18,7 @@ const initialState: CounterState = {
   error: "",
   cart: [],
   totalCartAmount: 0,
+  orderItem: [],
 };
 
 export const getDishes = createAsyncThunk("dishes", async () => {
@@ -88,6 +92,10 @@ export const cartSlice = createSlice({
       state.cart = [];
       state.totalCartAmount = 0;
     },
+
+    storeCartItem: (state, action) => {
+      state.orderItem = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -114,6 +122,7 @@ export const {
   decreaseQuantity,
   totalCartAmount,
   resetCart,
+  storeCartItem,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import SectionWrapper from "../../component/SectionWrapper";
 import { useAppDispatch, useAppSelector } from "../../store/hook";
 import { getDishes, addToCart } from "../../store/cart/cartSlice";
@@ -54,7 +54,6 @@ export const Home = () => {
                                     quantity,
                                   })
                                 );
-                                // dispatch(addToCart(dish));
                               }}
                             >
                               Add Cart

@@ -4,6 +4,7 @@ import {
   increaseQuantity,
   decreaseQuantity,
   resetCart,
+  storeCartItem,
 } from "../../store/cart/cartSlice";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -20,6 +21,7 @@ const Cart = () => {
     .toFixed(2);
 
   const handleCheckout = () => {
+    dispatch(storeCartItem(cartItems));
     dispatch(resetCart());
   };
 

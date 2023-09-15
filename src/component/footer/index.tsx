@@ -1,8 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import {
   FaFacebookF,
-  FaLongArrowAltRight,
   FaYoutube,
   FaPinterest,
   FaLinkedinIn,
@@ -54,15 +51,15 @@ const Footer = () => {
               </div>
               <div className="">
                 <p className="text-[#6c757d]">
-                  B-25, Mannan Plaza, 4th Floor Khilkhet, Dhaka-1229, Bangladesh
+                  House- 153, Road- 01, Sector- 12, Dhaka-1229, Bangladesh
                 </p>
               </div>
               <div className="">
                 <p className="text-[#6c757d] font-bold">Email:</p>
               </div>
               <div>
-                <p className="text-[#6c757d]">business@bdtask.com</p>
-                <p className="text-[#6c757d]">info@bdtask.com</p>
+                <p className="text-[#6c757d]">business@company.com</p>
+                <p className="text-[#6c757d]">info@company.com</p>
               </div>
             </div>
 
@@ -74,129 +71,15 @@ const Footer = () => {
                 <p className="text-[#6c757d] font-bold">Service:</p>
               </div>
               <div>
-                <p className="text-[#6c757d]">+880-183-070-1422</p>
-                <p className="text-[#6c757d]">+880-183-070-1422</p>
-                <p className="text-[#6c757d]">+880-183-070-1422</p>
+                <p className="text-[#6c757d]">+880-1768-090-875</p>
+                <p className="text-[#6c757d]">+880-1768-090-875</p>
+                <p className="text-[#6c757d]">+880-1768-090-875</p>
               </div>
               <div className="">
                 <p className="text-[#6c757d] font-bold">Office Reception:</p>
               </div>
               <div>
-                <p className="text-[#6c757d]">+880-183-070-1422</p>
-              </div>
-            </div>
-          </div>
-          <hr className="border-[#323233] border-[]" />
-          <div className="grid md:grid-cols-4 grid-cols-2 gap-8">
-            <div className="flex flex-col space-y-2">
-              <div className="">
-                <h4 className="text-[#fff] text-[20px]">Disclaimer</h4>
-              </div>
-              <div className="flex flex-col space-y-3">
-                <p className="text-[#6c757d]">
-                  © 2023 bdtask. All Rights Reserved.
-                </p>
-              </div>
-              <div>
-                <p className="text-[#6c757d]">
-                  Here all software, apps, themes, plugins, are our own
-                  property. Therefore copying or reselling is strictly
-                  prohibited.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col space-y-2">
-              <div className="">
-                <h4 className="text-[#fff] text-[20px]">Useful Links</h4>
-              </div>
-              <div className="">
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <div className="">
-                <h4 className="text-[#fff] text-[20px]">Useful Links</h4>
-              </div>
-              <div className="">
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-              </div>
-            </div>
-            <div className="flex flex-col space-y-2">
-              <div className="">
-                <h4 className="text-[#fff] text-[20px]">Useful Links</h4>
-              </div>
-              <div className="">
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Service
-                </Link>
-                <Link to="#" className="text-[#6c757d] flex items-center">
-                  <FaLongArrowAltRight className="mr-2" />
-                  Blog
-                </Link>
+                <p className="text-[#6c757d]">+880-1768-090-875</p>
               </div>
             </div>
           </div>
