@@ -1,53 +1,22 @@
 import { useEffect, useState } from "react";
 import SectionWrapper from "../../component/SectionWrapper";
-import axios from "axios";
-
-// interface IDish {
-//   cuisine_id: string;
-//   cuisine_name: string;
-//   category: [
-//     {
-//       category_id: string;
-//       category_name: string;
-//       dish: [
-//         {
-//           dish_id: string;
-//           dish_name: string;
-//           dish_description: string;
-//           dish_price: string;
-//         }
-//       ];
-//     }
-//   ];
-// }
+import { useAppDispatch, useAppSelector } from "../../store/hook";
+import { getDishes, addToCart } from "../../store/cart/cartSlice";
 
 export const Home = () => {
-  const [dishes, setDishes] = useState<any>();
+  const dispatch = useAppDispatch();
+  const dishes = useAppSelector((state) => state.cart.data?.app[0].cuisine);
 
   useEffect(() => {
-    // Define the API URL
-    const apiUrl =
-      "http://smartrestaurantsolutions.com/mobileapi-v2/v3/Tigger.php?funId=81&rest_id=17"; // Replace with your API URL
-
-    // Make an Axios GET request to the API
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        setDishes(response?.data?.app[0]?.cuisine); // Set the response data to the state
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, []);
-
-  if (!dishes) return null;
+    dispatch(getDishes());
+  }, [dispatch]);
 
   console.log("dishes", dishes);
-  // console.log("data", data.app[0].cuisine[0].category);
+
   return (
     <>
       <SectionWrapper title="Food Items" subTitle="Explore your food">
-        {dishes.map((cuisine: any) => {
+        {dishes?.map((cuisine: any) => {
           return (
             <div className="" key={cuisine.cuisine_id}>
               <div className="">
@@ -69,6 +38,27 @@ export const Home = () => {
                             <p>{dish.dish_name}</p>
                             <p>{dish.dish_description}</p>
                             <p>{dish.dish_price}</p>
+                            <button
+                              className="bg-amber-500 rounded-lg px-2 text-[14px] text-white float-right"
+                              onClick={() => {
+                                const dish_name = dish.dish_name;
+                                const dish_price = dish.dish_price;
+                                const dish_id = dish.dish_id;
+                                const quantity = 1;
+
+                                dispatch(
+                                  addToCart({
+                                    id: dish_id,
+                                    name: dish_name,
+                                    price: dish_price,
+                                    quantity,
+                                  })
+                                );
+                                // dispatch(addToCart(dish));
+                              }}
+                            >
+                              Add Cart
+                            </button>
                           </div>
                         );
                       })}

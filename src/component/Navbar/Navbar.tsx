@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { AiFillHome } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import { useAppSelector } from "../../store/hook";
 
 const Navbar = () => {
   const [isSidebarVisible, setSidebarVisible] = useState(false);
 
+  const cartItems = useAppSelector((state) => state.cart.cart.length);
+
   const toggleSidebar = () => {
-    console.log(isSidebarVisible); // Add this line for debugging
+    console.log(isSidebarVisible);
     setSidebarVisible(!isSidebarVisible);
   };
 
@@ -16,11 +19,23 @@ const Navbar = () => {
         <p className="text-center">Welcome Massage</p>
       </div>
       <div className="px-5 shadow-md py-5">
-        <div className="flex justify-end items-center gap-x-2">
-          <div className="bg-gray-200 p-2 rounded-full" onClick={toggleSidebar}>
-            <AiFillHome />
+        <div className="flex justify-between items-center gap-x-2">
+          <div className="">
+            <Link to="/">
+              <h1 className="max-w-2xl text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-4xl dark:text-white text-black">
+                ChefOnline
+              </h1>
+            </Link>
           </div>
-          <Link to="/cart">Cart</Link>
+          <div className="flex items-center gap-x-2">
+            <div
+              className="bg-gray-200 p-2 rounded-full"
+              onClick={toggleSidebar}
+            >
+              <AiFillHome />
+            </div>
+            <Link to="/cart">Cart ({cartItems})</Link>
+          </div>
         </div>
       </div>
 

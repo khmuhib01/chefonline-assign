@@ -4,6 +4,8 @@ import BaseLayout from "./layout/baseLayout";
 import Counter from "./pages/counter";
 import PageNotFound from "./pages/pageNotFound";
 import Cart from "./pages/cart";
+import User from "./pages/user";
+import { ThankYouPage } from "./pages/thankYouPage";
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/counter" element={<Counter />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/user" element={<User />} />
+        <Route path="/thank-you" element={<ThankYouPage />} />
         {/* <Route path="/employee">
           <Route index element={<Employee />} />
           <Route path=":id" element={<EditEmployee />} />
