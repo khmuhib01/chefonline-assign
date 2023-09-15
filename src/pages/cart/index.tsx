@@ -5,6 +5,7 @@ import {
   decreaseQuantity,
   resetCart,
   storeCartItem,
+  removeCartItem,
 } from "../../store/cart/cartSlice";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -30,7 +31,7 @@ const Cart = () => {
   return (
     <>
       {cartItems.length === 0 ? (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
+        <div className="bg-gray-100 flex items-center justify-center py-10">
           <div className="bg-white p-8 rounded-lg shadow-md">
             <h1 className="text-3xl font-semibold text-center mb-4">
               Your cart is empty.
@@ -74,7 +75,7 @@ const Cart = () => {
                                     <div
                                       className="absolute h-[20px] w-[20px] bg-white shadow-md top-[-5px] right-[-5px] rounded-full flex justify-center items-center"
                                       onClick={() => {
-                                        //
+                                        dispatch(removeCartItem(item.id));
                                       }}
                                     >
                                       <AiOutlineClose />
@@ -151,6 +152,8 @@ const Cart = () => {
                         Submit
                       </Link>
                     </div>
+
+                    
                   </div>
                 </div>
               </div>
