@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-const savedCart = localStorage.getItem("cart");
+// const savedCart = localStorage.getItem("cart");
 
 export interface CounterState {
   data: [] | null | any;
@@ -23,7 +23,7 @@ const initialState: CounterState = {
 
 export const getDishes = createAsyncThunk("dishes", async () => {
   return fetch(
-    "http://smartrestaurantsolutions.com/mobileapi-v2/v3/Tigger.php?funId=81&rest_id=17"
+    "http://smartrestaurantsolutions.com/mobileapi-v2/v3/Tigger.php?funId=81&rest_id=17",
   ).then((res) => res.json());
 });
 
@@ -35,7 +35,7 @@ export const cartSlice = createSlice({
       const newItem = action.payload;
 
       const existingItemIndex = state.cart.findIndex(
-        (item) => item.id === newItem.id
+        (item) => item.id === newItem.id,
       );
 
       if (existingItemIndex !== -1) {

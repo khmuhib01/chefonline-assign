@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AiFillHome, AiOutlineShoppingCart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { useAppSelector } from "../../store/hook";
 
